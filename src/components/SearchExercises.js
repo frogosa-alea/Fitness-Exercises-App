@@ -6,6 +6,7 @@ import HorizontalScrollBar from './HorizontalScrollBar';
 const SearchExercises = ({
   setExercises,
   bodyPart,
+  exercises,
   setBodyPart
 }) => {
   const [search, setSearch] = useState('')
@@ -22,16 +23,18 @@ const SearchExercises = ({
   }, [])
 
   const handleSearch = async () => {
-    if(search){
-      const exerciseData = await fetchData(
-        'https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions
+    if (search) {
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+
+      const searchedExercises = exercisesData.filter(
+        (item) => item.name.toLowerCase().includes(search)
+               || item.target.toLowerCase().includes(search)
+               || item.equipment.toLowerCase().includes(search)
+               || item.bodyPart.toLowerCase().includes(search),
       );
-      const searchedExercises = exerciseData.filter((exercise) => {
-        exercise.name.toLowerCase().includes(search)
-        || exercise.target.toLowerCase().includes(search)
-        || exercise.equipment.toLowerCase().includes(search)
-        || exercise.bodyPart.toLowerCase().includes(search)
-      })
+
+      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+
       setSearch('');
       setExercises(searchedExercises);
     }
@@ -106,6 +109,7 @@ const SearchExercises = ({
         <HorizontalScrollBar
           data={bodyParts}
           bodyPart={bodyPart}
+          setBodyParts={setBodyParts}
           setBodyPart={setBodyPart}
         />
       </Box>
