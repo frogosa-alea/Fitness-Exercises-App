@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import {Box, Stack, Typography} from '@mui/material';
-import { exerciseOptions, fetchData } from '../utils/fetchData';
+import { exerciseOptions, fetchData, youtubeOptions } from '../utils/fetchData';
 
 import Detail from '../components/Detail'
 import ExerciseVideos from '../components/ExerciseVideos'
@@ -20,6 +20,9 @@ const ExerciseDetail = () => {
 
       const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions)
       setExerciseDetail(exerciseDetailData);
+
+      const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
+      setExerciseVideos(exerciseVideosData.contents);
     }
     fetchExercisesData();
   }, [id])
@@ -29,7 +32,8 @@ const ExerciseDetail = () => {
         exerciseDetail={exerciseDetail}
       />
       <ExerciseVideos
-
+        exerciseVideos={exerciseVideos}
+        name={exerciseDetail.name}
       />
       <SimilarExercises/>
     </Box>
