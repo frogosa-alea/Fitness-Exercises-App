@@ -7,10 +7,30 @@ import Detail from '../components/Detail'
 import ExerciseVideos from '../components/ExerciseVideos'
 import SimilarExercises from '../components/SimilarExercises';
 const ExerciseDetail = () => {
+
+  const [exerciseDetail, setExerciseDetail] = useState({});
+  const [exerciseVideos, setExerciseVideos] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const fetchExercisesData = async () => {
+      const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
+      const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
+
+      const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions)
+      setExerciseDetail(exerciseDetailData);
+    }
+    fetchExercisesData();
+  }, [id])
   return (
     <Box>
-      <Detail/>
-      <ExerciseVideos />
+      <Detail
+        exerciseDetail={exerciseDetail}
+      />
+      <ExerciseVideos
+
+      />
       <SimilarExercises/>
     </Box>
   )
