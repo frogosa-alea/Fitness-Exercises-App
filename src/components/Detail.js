@@ -1,5 +1,5 @@
 import React from 'react'
-import { Stack, Typography, Button } from '@mui/material';
+import { Stack, Typography, Button, } from '@mui/material';
 
 import TargetImage from '../assets/icons/target.png';
 import BodyPartImage from '../assets/icons/body-part.png';
@@ -35,17 +35,16 @@ const Detail = ({ exerciseDetail }) => {
       gap='60px'
       sx={{
         flexDirection: {lg:'row'},
-        p: '20px',
+        p: '40px',
         alignItems:'center',
       }}
     >
-      <img src={gifUrl} alt={name} loading='lazy' className='detail-image'/>
       <Stack
         sx={{
           gap: {lg: '35px', sx:'20px'}
         }}
       >
-        <Typography variant="h3">
+        <Typography variant="h4" style={{textTransform: 'capitalize', fontWeight: 'bold', color:'#2c2c4c'}}>
           {name }
         </Typography>
         <Typography variant="h6">
@@ -57,16 +56,16 @@ const Detail = ({ exerciseDetail }) => {
           <Stack key={item.name} direction="row" gap="24px" alignItems="center">
             <Button
               sx={{
-                background: '#FFF2DB',
+                background: '#2c2c4c',
                 borderRadius: '50%',
-                width: '100px',
-                height: '100px',
+                width: '80px',
+                height: '80px',
               }}
             >
               <img
                 src={item.icon}
                 alt={bodyPart}
-                style={{width:'50px', height:'50px'}}
+                style={{width:'40px', height:'40px'}}
               />
             </Button>
             <Typography variant="h5" textTransform="capitalize">
@@ -75,6 +74,7 @@ const Detail = ({ exerciseDetail }) => {
           </Stack>
         ))}
       </Stack>
+      <img src={gifUrl} alt={name} loading='lazy' className='detail-image'/>
     </Stack>
   )
 }
