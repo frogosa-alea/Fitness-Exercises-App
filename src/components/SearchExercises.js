@@ -18,6 +18,7 @@ const SearchExercises = ({
       const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
       setBodyParts(['all', ...bodyPartsData])
       console.log(bodyPartsData)
+      console.log('bodyParts',bodyParts)
     }
     fetchExercisesData();
   }, [])
@@ -57,7 +58,7 @@ const SearchExercises = ({
       >
         Awesome Exercises You <br/> Should Know
       </Typography>
-      <Box
+      {/* <Box
         position="relative"
         mb="72px"
       >
@@ -98,7 +99,7 @@ const SearchExercises = ({
         >
           Search
         </Button>
-      </Box>
+      </Box> */}
       <Box
         sx={{
           position:'relative',

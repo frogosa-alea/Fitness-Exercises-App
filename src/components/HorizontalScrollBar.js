@@ -10,7 +10,7 @@ import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
-    console.log('LeftArrow', LeftArrow)
+
   return (
     <Typography onClick={() => scrollPrev()} className="right-arrow">
       <img src={LeftArrowIcon} alt="right-arrow" />
@@ -20,7 +20,6 @@ const LeftArrow = () => {
 
 const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext);
-  console.log('RightArrow', RightArrow)
 
   return (
     <Typography onClick={() => scrollNext()} className="left-arrow">

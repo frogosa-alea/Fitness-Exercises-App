@@ -23,9 +23,10 @@ const Exercises = ({
   useEffect(() => {
     const fetchExercisesData = async () => {
       let exercisesData = [];
+      console.log('Exercises Component', bodyPart)
 
       if(bodyPart === 'all'){
-        exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+        exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
       } else {
         exercisesData = await fetchData(
           `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
@@ -42,13 +43,18 @@ const Exercises = ({
   return (
     <Box
       id="exercises"
-      sx={{ mt:{lg: '110px'}}}
-      mt="50px"
+      // sx={{ mt:{lg: '110px'}}}
       p="20px"
     >
       <Typography
-        variant="h3"
-        mb="46px"
+        color="#2c2c4c"
+        sx={{
+          fontSize: {
+            lg: '33px', xs: '30px'
+          },
+          mb: '20px'
+        }}
+        fontWeight="600"
       >
         Showing Results
       </Typography>

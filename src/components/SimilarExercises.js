@@ -7,11 +7,12 @@ const SimilarExercises = ({targetMuscleExercises, equipmentExercises}) => {
   console.log('targetMuscleExercises', targetMuscleExercises);
   return (
     <Box
-      sx={{
-        mt: {lg:'100px', xs:'0'}
-      }}
+      // sx={{
+      //   mt: {lg:'100px', xs:'0'}
+      // }}
+      p='10px'
     >
-      <Typography variant='h3' mb={5}>
+      <Typography variant='h5' mb='33px'>
         Exercises that target the same muscle group
       </Typography>
       <Stack
@@ -23,7 +24,7 @@ const SimilarExercises = ({targetMuscleExercises, equipmentExercises}) => {
         : <Loader/>
         }
       </Stack>
-      <Typography variant='h3' mb={5}>
+      <Typography variant='h5' mb='33px'>
         Exercises that use the same equipment
       </Typography>
       <Stack
