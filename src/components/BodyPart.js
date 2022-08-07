@@ -20,7 +20,7 @@ const BodyPart = ({
             height:'280px',
             cursor:'pointer',
             gap:'47px',
-            borderTop: bodyPart === item ? '4px solid #FF2625' :''
+            borderTop: bodyPart === item ? '4px solid #2c2c4c' :''
         }}
         onClick={() => {
             setBodyPart(item);

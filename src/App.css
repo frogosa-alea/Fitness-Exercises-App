@@ -1,5 +1,5 @@
 body {
-    font-family: 'Josefin Sans';
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
     background-color: #FFFAFB;
   }
 
@@ -58,8 +58,10 @@ body {
     right: 40px;
     top: 0px;
     width: 700px;
-    height: 900px;
-    margin-top: -330px;
+    border-radius: 10px;
+    box-shadow: #343a40 5px 5px;
+    /* height: 900px; */
+    /* margin-top: -330px; */
 
   }
 

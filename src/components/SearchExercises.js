@@ -43,7 +43,7 @@ const SearchExercises = ({
   return (
     <Stack
       alignItems="center"
-      mt='37px'
+      mt='10px'
       justifyContent='center'
       p="20px"
     >

@@ -1,31 +1,38 @@
 import React from 'react'
-import { Box, Stack, Typography, Button } from '@mui/material';
+import {
+  Box,
+  Stack,
+  Typography,
+  ButtonPaper,
+  Button,
+  Paper
+} from '@mui/material';
+import Carousel from 'react-material-ui-carousel';
+import HeroBannerImage from '../assets/images/banner.jpg'
 
-import HeroBannerImage from '../assets/images/banner.png'
 const HeroBanner = () => {
   return (
     <Box
       sx={{
-        mt: {lg: '212px', xs: '70px'},
-        ml: {sm: '50px'}
+        mt: '50px'
       }}
       position="relative"
       p='20px'
     >
       <Typography
-        color="#FF2625"
-        fontSize="26px"
-        fontWeight="600"
-      >
-        Fitness Club
-      </Typography>
-      <Typography
-        fontWeight ='700'
+        color="#2c2c4c"
         sx={{
           fontSize: {
             lg: '44px', xs: '40px'
           }
         }}
+        fontWeight="600"
+      >
+        The Hustle Gym
+      </Typography>
+      <Typography
+        fontWeight ='700'
+        fontSize="26px"
         mb="23px"
         mt='30px'
       >
@@ -40,11 +47,11 @@ const HeroBanner = () => {
       </Typography>
       <Button
         variant='contained'
-        color='error'
+        color='primary'
         mb={2}
         href='#exercises'
         sx={{
-          backgroundColor:'#FF2625',
+          backgroundColor:'#2c2c4c',
           padding:'10px'
         }}
       >
@@ -52,7 +59,7 @@ const HeroBanner = () => {
       </Button>
       <Typography
         fontWeight='600'
-        color='#FF2625'
+        color='#2c2c4c'
         sx={{
           opacity: 0.1,
           display: {
@@ -61,7 +68,7 @@ const HeroBanner = () => {
         }}
         fontSize='200px'
       >
-        Exercise
+        HUSTLE
       </Typography>
       <img src={HeroBannerImage} alt='banner' className='hero-banner-img'/>
     </Box>
